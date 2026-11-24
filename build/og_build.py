@@ -24,7 +24,7 @@ def svg():
     return "\n".join(o)
 
 PAGE = """<!doctype html><html><head><meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=JetBrains+Mono:wght@500&family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600;1,8..60,600&family=JetBrains+Mono:wght@500&family=Poppins:wght@400;500;600&display=swap">
 <style>
 html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#F5F3EE}
 #stage{position:relative;width:1200px;height:630px;overflow:hidden;font-family:Poppins,sans-serif;color:#14163A}
@@ -35,7 +35,7 @@ html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#F5F3EE}
 .brand span{display:block;font:500 15px/1.3 "Noto Sans CJK SC","Noto Sans SC",sans-serif;letter-spacing:.2em;color:#585E6A}
 .eyebrow{position:absolute;left:64px;top:150px;font:500 15px/1 "JetBrains Mono";letter-spacing:.12em;color:#2E3192;display:flex;gap:12px;align-items:center}
 .eyebrow i{width:26px;height:9px;border-radius:9px;background:#2E3192}
-h1{position:absolute;left:64px;top:180px;margin:0;font:500 66px/1.02 "Bodoni Moda",serif;letter-spacing:-.03em}
+h1{position:absolute;left:64px;top:180px;margin:0;font:600 66px/1.02 "Source Serif 4",serif;letter-spacing:-.022em}
 h1 .ln{display:block;overflow:hidden;padding:0 8px 10px;margin:0 -8px -10px}
 h1 .ln > span{display:block;will-change:transform}
 h1 em{font-style:italic;color:#2E3192}
@@ -102,9 +102,9 @@ function render(t){
   document.querySelectorAll('.stn').forEach(g=>{ const [a,e]=DRAW[g.dataset.line]; const at=a+(e-a)*(+g.dataset.f)+.02; const p=spring((t-at)/.6);
     g.style.opacity=fade(t,at,.15); g.style.transform=`scale(${.3+.7*p})`; });
   document.querySelectorAll('.train').forEach((g,i)=>{ const k=g.dataset.path; const st=3.4+i*.5; const L=lens[k];
-    const d=clamp((t-st)/4.2)*L; const pt=paths[k].getPointAtLength(d); const pa=paths[k].getPointAtLength(Math.min(L,d+1)), pb=paths[k].getPointAtLength(Math.max(0,d-1));
+    const d=clamp((t-st)/3.4)*L; const pt=paths[k].getPointAtLength(d); const pa=paths[k].getPointAtLength(Math.min(L,d+1)), pb=paths[k].getPointAtLength(Math.max(0,d-1));
     const ang=Math.round(Math.atan2(pa.y-pb.y,pa.x-pb.x)*2/Math.PI)*90;
-    g.setAttribute('transform',`translate(${pt.x.toFixed(2)} ${pt.y.toFixed(2)}) rotate(${ang})`); g.style.opacity=fade(t,st,.25)*(1-fade(t,st+4.35,.3)); });
+    g.setAttribute('transform',`translate(${pt.x.toFixed(2)} ${pt.y.toFixed(2)}) rotate(${ang})`); g.style.opacity=fade(t,st,.25)*(1-fade(t,st+3.5,.3)); });
   const tk=ease((t-1.8)/.6); $('ticker').style.transform=`translate3d(0,${(1-tk)*46}px,0)`;
   const px=Math.round(Math.max(0,t-1.8)*60); run.style.transform=`translate3d(${-(px%Math.round(W1))}px,0,0)`;
   const tb=spring((t-6.3)/1.0); $('tabbar').style.opacity=fade(t,6.3,.3); $('tabbar').style.transform=`translate3d(0,${(1-tb)*90}px,0)`;

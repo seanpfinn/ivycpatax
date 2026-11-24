@@ -44,7 +44,7 @@ The firm's own tagline is the H1: *Precision tax planning, profound savings.*
 ## Spacing & performance
 
 - Spacing tokens 8/12/16/24/32/48/64px and fluid section padding `clamp(64px,9vw,112px)`; type tokens `--lh-body:1.65`, `--track-label:.12em`.
-- One `backdrop-filter` (sticky header), one rAF-throttled scroll handler using `getBoundingClientRect()` (reveals, header, scroll-spy, map visibility, S-Corp sweep), pre-tinted SVG grain, no blend modes. Fonts: Bodoni Moda 500 + italic, Poppins 400/500/600, JetBrains Mono 500, and Noto Sans SC loaded with `text=` for only the Chinese characters used.
+- One `backdrop-filter` (sticky header), one rAF-throttled scroll handler using `getBoundingClientRect()` (reveals, header, scroll-spy, map visibility, S-Corp sweep), pre-tinted SVG grain, no blend modes. Fonts: Source Serif 4 600 + italic (display, optical sizing), Poppins 400/500/600, JetBrains Mono 500, and Noto Sans SC loaded with `text=` for only the Chinese characters used.
 - Load sequence: header slides down → headline lines rise from masks → lede and chips → map card springs in → ghost mark fades up → compliance line draws, then strategy line → stations pop as the lines pass → trains depart → tab bar rises last. Gated on `load` + `document.fonts.ready` + 250ms with a 4s fallback; reduced motion shows the finished map with no trains; without JS everything is visible.
 - Verified at 1440, 390 and 360px: no horizontal overflow, no console errors, **axe-core (WCAG 2.2 AA + best practice): 0 violations**, tab bar visible at hero/mid-page/footer (with and without reduced motion) and hidden on desktop, exactly one selected tab-bar item in Services and Pricing and none elsewhere, tab keys and chips working.
 
